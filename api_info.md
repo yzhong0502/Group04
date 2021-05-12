@@ -2,40 +2,40 @@
 | ---- | ------------------------------------------------------------ |
 |      |                                                              |
 |      |                                                              |
-|      | #Register                                                    |
+|      | Register                                                    |
 |      |                                                              |
-|      | ##POST http://localhost:3000/api/auth/register               |
-|      | ##Body { "user" : "username", "email" : "email@example.com", "password" : "12345678" } |
-|      |                                                              |
-|      | Response success { "status": "success", "message":"Successfully registered", "data": { "_id": "sJgiedTGRbW7pyJB","name":"Jay", "email": "exampsle2@dasds.dsd", "token":"whatever token"} } |
-|      |                                                              |
-|      | Response fail { "status": "error", "message":"error message"} |
-|      |                                                              |
-|      | #Login                                                       |
-|      |                                                              |
-|      | ##POST http://localhost:3000/api/auth/login                  |
-|      | ##Body { "email" : "email@example.com", "password" : "12345678" } |
+|      | POST http://localhost:3000/api/auth/register               |
+|      | Body { "user" : "username", "email" : "email@example.com", "password" : "12345678" } |
 |      |                                                              |
 |      | Response success { "status": "success", "message":"Successfully registered", "data": { "_id": "sJgiedTGRbW7pyJB","name":"Jay", "email": "exampsle2@dasds.dsd", "token":"whatever token"} } |
 |      |                                                              |
 |      | Response fail { "status": "error", "message":"error message"} |
 |      |                                                              |
+|      | Login                                                       |
+|      |                                                              |
+|      | POST http://localhost:3000/api/auth/login                  |
+|      | Body { "email" : "email@example.com", "password" : "12345678" } |
+|      |                                                              |
+|      | Response success { "status": "success", "message":"Successfully registered", "data": { "_id": "sJgiedTGRbW7pyJB","name":"Jay", "email": "exampsle2@dasds.dsd", "token":"whatever token"} } |
+|      |                                                              |
+|      | Response fail { "status": "error", "message":"error message"} |
 |      |                                                              |
 |      |                                                              |
 |      |                                                              |
-|      | #Add news:                                                   |
 |      |                                                              |
-|      | ##POST http://localhost:3000/api/news/addNews                |
-|      | ##Header {"authorization" :"token"}                          |
-|      | ##Body {'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} |
+|      | Add news:                                                   |
+|      |                                                              |
+|      | POST http://localhost:3000/api/news/addNews                |
+|      | Header {"authorization" :"token"}                          |
+|      | Body {'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} |
 |      |                                                              |
 |      | Response success { "status": "success", "message":"Successfully added news", "data": { "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} } |
 |      |                                                              |
 |      | Response fail { "status": "error", "message":"error message"} |
 |      |                                                              |
-|      | #List news:                                                  |
+|      | List news:                                                  |
 |      |                                                              |
-|      | ##Get http://localhost:3000/api/news/getNews                 |
+|      | Get http://localhost:3000/api/news/getNews                 |
 |      |                                                              |
 |      | Response success { "status": "success", "message":"Successfully added news", "data": [{ "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'},..........] } |
 |      |                                                              |
