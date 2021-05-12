@@ -53,18 +53,17 @@
 |           | Response fail { "status": "error", "message":"error message"} |
 |           |                                                              |
 
-
-
-| Delete news |
+|             |                                                              |
 | ----------- | ------------------------------------------------------------ |
+| Delete news |                                                              |
 |             |                                                              |
 |             | Delete http://localhost:3000/api/news/deleteNews             |
-|             | Header {"authorization" :"sometoken"}                        |
-|             | Body {"_id": "sJgiedTGRbW7pyJ"}                              |
+|             | Header {"authorization" :"token"}                            |
+|             | Body {"_id": "sJgiedTGRbW7pyJB"}                             |
 |             |                                                              |
-|             | Response success { "status": "success", "message":"Successfully deleted news"} |
+|             | Response success { "status": "success", "message":"Successfully deleted news" } |
 |             |                                                              |
-|             | Response fail { "status": "error", "message":"Fail to delete news"} |
+|             | Response fail { "status": "error", "message":"Fail to delete"} |
 
 | Send query |                                                              |
 | ---------- | ------------------------------------------------------------ |
