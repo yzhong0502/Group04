@@ -37,7 +37,7 @@
 |      |                                                              |
 |      | Get http://localhost:3000/api/news/getNews                 |
 |      |                                                              |
-|      | Response success { "status": "success", "message":"Successfully added news", "data": [{ "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'},..........] } |
+|      | Response success { "status": "success", "message":"Successfully get news", "data": [{ "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'},..........] } |
 |      |                                                              |
 |      | Response fail { "status": "error", "message":"error message"} |
 |      |                                                              |
