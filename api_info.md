@@ -5,7 +5,7 @@
 |      | Register                                                    |
 |      |                                                              |
 |      | POST http://localhost:3000/api/auth/register               |
-|      | Body { "user" : "username", "email" : "email@example.com", "password" : "12345678" } |
+|      | Body { "name" : "username", "email" : "email@example.com", "password" : "12345678" } |
 |      |                                                              |
 |      | Response success { "status": "success", "message":"Successfully registered", "data": { "_id": "sJgiedTGRbW7pyJB","name":"Jay", "email": "exampsle2@dasds.dsd", "token":"whatever token"} } |
 |      |                                                              |
