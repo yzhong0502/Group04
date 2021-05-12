@@ -34,8 +34,6 @@ Response fail { "status": "error", "message":"error message"}
 List news:
 
 Get http://localhost:3000/api/news/getNews
-Header {"token" :"zdjfopafqoijgo"}
-Body {}
   
 Response success { "status": "success", "message":"Successfully added news", "data": [{ "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'},..........] }
 
