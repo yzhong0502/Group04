@@ -42,11 +42,11 @@
 |      | Response fail { "status": "error", "message":"error message"} |
 |      |                                                              |
 |      |                                                              |
-|      | #Edit news:                                                  |
+|      | Edit news:                                                  |
 |      |                                                              |
-|      | ##Post http://localhost:3000/api/news/editNews               |
-|      | ##Header {"authorization" :"token"}                          |
-|      | ##Body {"_id": "sJgiedTGRbW7pyJB", 'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} |
+|      | Post http://localhost:3000/api/news/editNews               |
+|      | Header {"authorization" :"token"}                          |
+|      | Body {"_id": "sJgiedTGRbW7pyJB", 'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} |
 |      |                                                              |
 |      | Response success { "status": "success", "message":"Successfully edited news", "data": { "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} } |
 |      |                                                              |
