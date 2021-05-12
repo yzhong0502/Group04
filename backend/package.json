@@ -1,0 +1,23 @@
+{
+  "name": "mediaapp",
+  "version": "1.0.0",
+  "description": "Certification Project - Group 4",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Yuan Zhong, Lei Jiang, Anuragreddy Gunreddy, Tumula Akhitha, Madhu Nandamuri",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.8",
+    "node-localstorage": "^2.1.6"
+  }
+}
