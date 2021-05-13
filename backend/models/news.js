@@ -5,7 +5,7 @@ let newsModel = new Schema({
     title:{type:String, required:true},
     description:{type:String, required:true},
     url: {type:String, required:true},
-    image:{type:String},
+    imageUrl:{type:String},
     publishedAt:{type:String}
 })
 
