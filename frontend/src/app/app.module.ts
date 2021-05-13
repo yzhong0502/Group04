@@ -15,6 +15,8 @@ import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { DataListComponent } from './components/data-list/data-list.component';
+import { WeatherService } from './services/weather.service'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { DataListComponent } from './components/data-list/data-list.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
