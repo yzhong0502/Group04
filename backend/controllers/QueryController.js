@@ -7,6 +7,7 @@ const Query = require('../models/query');
 
 
 // api/query/send
+// test-passed
 router.post('/send',(req, res) =>{
     const {email, query} = req.body;
     Query.create({email, query},(err, doc) => {
