@@ -83,8 +83,25 @@
                 </div>
             </div>
         </div>
+
+        <div class="form-group m-3">
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" [ngClass]="
+                (newsform.get('category').invalid &&
+                (newsform.get('category').dirty ||
+                newsform.get('category').touched)) === true
+                ? 'is-invalid'
+                : ''" formControlName="category" class="form-control input-sm" required />
+            <div *ngIf="(newsform.get('category').invalid &&
+                (newsform.get('category').dirty ||
+                newsform.get('category').touched))" class="invalid-feedback">
+                <div *ngIf="newsform.get('category').errors.required">
+                    Category is required
+                </div>
+            </div>
+        </div>
         <div class="text-center">
-            <input type="submit" value="Register" class="btn btn-primary mr-3" />
+            <input type="submit" value="Register" class="btn btn-primary me-3" />
             <input type="submit" value="RESET" class="btn btn-warning " />
         </div>
     </form>

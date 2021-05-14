@@ -1,6 +1,7 @@
 const app = require('./app');
 const port = 3000;
 const frontend_url = "http://localhost:4200";
+var cors = require('cors')
 
 const http = require('http');
 const server = http.createServer(app);
@@ -12,6 +13,8 @@ const io = new Server(server, {
         credentials:true
     }
 });
+
+app.use(cors())
 
 io.on('connection',(socket)=>{
     console.log('A user connected');

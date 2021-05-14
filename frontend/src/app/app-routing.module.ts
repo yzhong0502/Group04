@@ -5,7 +5,7 @@ import { DataListComponent } from './components/data-list/data-list.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 
 const routes: Routes = [
-  {path: 'register-login',component: RegisterLoginComponent},
+  {path: 'login',component: RegisterLoginComponent},
   {path: 'add-news',component: AddNewsComponent},
   {path: 'news-list', component: DataListComponent}
 ];

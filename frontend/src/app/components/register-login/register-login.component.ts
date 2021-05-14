@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-register-login',
@@ -19,13 +20,27 @@ export class RegisterLoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private registerService: RegisterService) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    console.log('submitted');
+  onClickRegister() {
+    this.registerService.registerUser({name: this.registrationForm.get('fullName').value,
+     email: this.registrationForm.get('email').value, 
+     password: this.registrationForm.get('password').value}).subscribe(data=>{
+       if(data?.status === "success"){
+          localStorage.setItem("token",data?.data?.token)
+       }
+    })
   }
 
+  onClickLogin(){
+    this.registerService.loginUser({email: this.registrationForm.get('email').value, 
+    password: this.registrationForm.get('password').value}).subscribe(data=>{
+      if(data?.status === "success"){
+        localStorage.setItem("token",data?.data?.token)
+     }
+   })
+  }
 
 }
