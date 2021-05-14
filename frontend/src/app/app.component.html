@@ -1,13 +1,10 @@
-<app-weather> loading</app-weather>
+<div class="container">
+  <div class="row">
+    <app-header></app-header>
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer class="footer"></app-footer>
+  </div>
 
-<iframe
-  width="600"
-  height="450"
-  style="border:0"
-  loading="lazy"
-  allowfullscreen
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCCa-dSSzC9_05roiiND-tfWRC5Zbg8aJw
-    &q=Tata+Consultancy+edison">
-</iframe>
-
-<router-outlet></router-outlet>
+</div>

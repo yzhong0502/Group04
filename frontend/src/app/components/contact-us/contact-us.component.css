@@ -1,0 +1,18 @@
+.card{
+    width:40em;
+    margin-top:3em;
+    margin-left:20em;
+}
+.form-control{
+    margin:1em;
+    width:20em;
+}
+
+label,button{
+    margin:1em;
+}
+
+h5{
+    color:green;
+    text-align: center;
+}

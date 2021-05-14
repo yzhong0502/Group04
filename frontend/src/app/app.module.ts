@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,8 +16,10 @@ import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { DataListComponent } from './components/data-list/data-list.component';
-import { WeatherService } from './services/weather.service'
-import { HttpClientModule } from '@angular/common/http'
+import { WeatherService } from './services/weather.service';
+import {QueryService} from './services/query.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,10 +41,11 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    NgbModule,
     ReactiveFormsModule,
-    FormsModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService,QueryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

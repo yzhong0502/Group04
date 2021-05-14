@@ -1,1 +1,20 @@
-<p>contact-us works!</p>
+<div class="card">
+    <div class="card-header">
+        Please Enter your Query
+    </div>
+    <div>
+  <form #f="ngForm" (ngSubmit)="addQuery(f)">  
+      <label>Email:</label>
+      <div class="form-group">
+        <input type="email" #email="ngModel" [(ngModel)]="f.email" class="form-control"  [ngModelOptions]="{standalone: true}" placeholder="Enter Email"/>
+      </div>
+      <label>Query:</label>
+      <div class="form-group">
+          <input type="text" #query="ngModel" [(ngModel)]="f.query" class="form-control" [ngModelOptions]="{standalone: true}"  placeholder="Enter Query">
+        </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <span *ngIf="submitted">
+        <h5>Your Query has been succesfully submitted</h5>
+    </span>
+  </div>
