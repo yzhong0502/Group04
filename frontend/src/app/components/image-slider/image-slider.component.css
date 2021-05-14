@@ -1,0 +1,12 @@
+#carousal{
+    background-color:green;
+}
+.carousel-item {
+   text-align: center;
+}
+#carouselExampleIndicators{
+    width:800px;
+    margin-left:6em;
+    margin-top:6em;
+    margin-bottom:2em;
+}

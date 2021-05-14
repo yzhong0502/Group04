@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QueryService } from 'src/app/services/query.service';
 
 @Component({
   selector: 'app-image-slider',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image-slider.component.css']
 })
 export class ImageSliderComponent implements OnInit {
-
-  constructor() { }
+  images:any=[];
+  constructor(private query:QueryService) { }
 
   ngOnInit(): void {
+    this.query.news().subscribe((res:any)=>{
+      res.data.map((image)=>{
+        this.images.push(image.imageUrl);
+      })
+      console.log(this.images)
+    })
   }
 
 }

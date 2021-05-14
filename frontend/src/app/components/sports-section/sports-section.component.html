@@ -1,1 +1,33 @@
-<p>sports-section works!</p>
+<div class="btn-group mr-3">
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn" ngbDropdownToggle>Select Category</button>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <button ngbDropdownItem  (click)="firstbutton()">General</button>
+        <button ngbDropdownItem  (click)="secondbutton()">Sports</button>
+      </div>
+    </div>
+  </div>  
+
+  <div *ngIf="showgeneral" class="displaycards">
+    <div class="card" style="width: 18rem;" *ngFor="let general of generalItems">
+        <img class="card-img-top" src={{general.imageUrl}} alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{general.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{general.description}}</h6>
+            <p class="card-text">{{general.publishedAt}}</p>
+            <a href="#" class="card-link">{{general.url}}</a>
+        </div>
+  </div>
+  </div>
+
+  <div *ngIf="showsports"  class="displaycards">
+    <div class="card" style="width: 18rem;" *ngFor="let sports of sportsItems">
+        <img class="card-img-top" src={{sports.imageUrl}} alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{sports.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{sports.description}}</h6>
+            <p class="card-text">{{sports.publishedAt}}</p>
+            <a href="#" class="card-link">{{sports.url}}</a>
+        </div>
+      </div>
+</div>
