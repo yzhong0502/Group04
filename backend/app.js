@@ -3,8 +3,8 @@ const app = express();
 const db = require('./db');
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.json()) // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 const AuthController = require('./controllers/AuthController');

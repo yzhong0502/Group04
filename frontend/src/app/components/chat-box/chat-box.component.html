@@ -1,1 +1,15 @@
-<p>chat-box works!</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <ul *ngFor="let msg of messages" id="messages">
+      <li>{{msg}}</li>
+    </ul>
+
+    <form name="form" id="form" #f="ngForm" (ngSubmit)="f.form.valid && sendMessage()">
+      <input class="input nick" type="text" name="nickname" placeholder="Nickname" [(ngModel)]="nickname">
+      <input class="input msg" type="text" name="message" [(ngModel)]="message" required placeholder="Message"/>
+      <input class="button" type="submit" value="Send">
+    </form>
+  </div>
+</div>
+
+

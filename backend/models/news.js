@@ -6,7 +6,8 @@ let newsModel = new Schema({
     description:{type:String, required:true},
     url: String,
     imageUrl:String,
-    publishedAt:String
+    publishedAt:String,
+    category:String
 })
 
 module.exports = mongoose.model('news', newsModel,'newsList');

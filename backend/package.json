@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^8.4.0",
     "mongoose": "^5.12.8",
-    "node-localstorage": "^2.1.6"
+    "node-localstorage": "^2.1.6",
+    "socket.io": "^4.1.1"
   }
 }
