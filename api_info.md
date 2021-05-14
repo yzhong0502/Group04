@@ -27,9 +27,9 @@
 |           |                                                              |
 |           | POST http://localhost:3000/api/news/addNews                  |
 |           | Header {"authorization" :"token"}                            |
-|           | Body {'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} |
+|           | Body {'title':'ada', 'description':'aowefjf', 'url':'http://adfaf',  imageUrl':'...', 'publishedAt':'...', 'category': '....'} |
 |           |                                                              |
-|           | Response success { "status": "success", "message":"Successfully added news", "data": { "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} } |
+|           | Response success { "status": "success", "message":"Successfully added news", "data": { "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf',  imageUrl':'...', 'publishedAt':'...',  'category': '....'} } |
 |           |                                                              |
 |           | Response fail { "status": "error", "message":"error message"} |
 |           |                                                              |
@@ -37,7 +37,7 @@
 |           |                                                              |
 |           | Get http://localhost:3000/api/news/getNews                   |
 |           |                                                              |
-|           | Response success { "status": "success", "message":"Successfully get news", "data": [{ "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'},..........] } |
+|           | Response success { "status": "success", "message":"Successfully get news", "data": [{ "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...', 'category': '....'},..........] } |
 |           |                                                              |
 |           | Response fail { "status": "error", "message":"error message"} |
 |           |                                                              |
@@ -46,9 +46,9 @@
 |           |                                                              |
 |           | Put http://localhost:3000/api/news/editNews                  |
 |           | Header {"authorization" :"token"}                            |
-|           | Body {"_id": "sJgiedTGRbW7pyJB", 'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} |
+|           | Body {"_id": "sJgiedTGRbW7pyJB", 'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...', 'category': '....'} |
 |           |                                                              |
-|           | Response success { "status": "success", "message":"Successfully edited news", "data": { "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...'} } |
+|           | Response success { "status": "success", "message":"Successfully edited news", "data": { "_id": "sJgiedTGRbW7pyJB",'title':'ada', 'description':'aowefjf', 'url':'http://adfaf d',  imageUrl':'...', 'publishedAt':'...',  'category': '....'} } |
 |           |                                                              |
 |           | Response fail { "status": "error", "message":"error message"} |
 |           |                                                              |

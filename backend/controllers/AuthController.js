@@ -16,10 +16,12 @@ const Admin = require('../models/admin');
 //router.use(session({secret: 'edurekaSecert1', resave: false, saveUninitialized: true}));
 
 // api/auth/register
+//test-passed
 router.post('/register',(req, res) =>{
+
     const { name, email, password } = req.body;
 
-    Admin.findOne({ email: email }, (error, doc) => {
+    Admin.findOne({ email }, (error, doc) => {
         if (error) {
             res.json({ status: "error", message: "Error in DB connection." });
             return false;
@@ -35,7 +37,7 @@ router.post('/register',(req, res) =>{
                 }
                 Admin.create({ name, email, password: encrypted }, (err, doc) => {
                     if (err) {
-                        res.json({ status: "error", message: "Error in database."});
+                        res.json({ status: "error", message: "Invalid input."});
                         return false;
                     }
                     //login
@@ -59,24 +61,41 @@ router.post('/register',(req, res) =>{
 })
 
 // api/auth/login
+// test-passed
 router.post('/login',(req, res) =>{
+
     const { email, password } = req.body;
 
-    users.findOne({ email: email }, (error, doc) => {
+    Admin.findOne({ email }, (error, doc) => {
         if (error) {
+            res.json({
+                status: "error",
+                message: "Error in DB connection.",
+            });
+            return false;
+        }
+        if (!doc) {
             res.json({
                 status: "error",
                 message: "Email and Password combination are incorrect.",
             });
-            throw "Error in DB";
+            console.log("Email doesn't exist.")
+            return false;
         }
         bcrypt.compare(password, doc.password, function (err, result) {
             if (err) {
                 res.json({
                     status: "error",
+                    message: "Error occured.",
+                });
+                return false;
+            }
+            if (!result) {
+                res.json({
+                    status: "error",
                     message: "Email and Password combination are incorrect.",
                 });
-                throw "Email and Password combination are incorrect.";
+                return false;
             }
             const token = jwt.sign({ id: doc._id}, config.secret, {
                 expiresIn: 86400 // expires in 24 hours
@@ -91,6 +110,7 @@ router.post('/login',(req, res) =>{
                     token: token
                 },
             });
+            return true;
         });
     });
 })

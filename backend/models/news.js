@@ -4,9 +4,9 @@ let Schema = mongoose.Schema;
 let newsModel = new Schema({
     title:{type:String, required:true},
     description:{type:String, required:true},
-    url: {type:String, required:true},
-    imageUrl:{type:String},
-    publishedAt:{type:String}
+    url: String,
+    imageUrl:String,
+    publishedAt:String
 })
 
 module.exports = mongoose.model('news', newsModel,'newsList');

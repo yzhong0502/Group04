@@ -1,27 +1,16 @@
 //control the news feed flow
 const express = require('express');
 const router = express.Router();
-const LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage('./scratch');
-// For parsing form
-const bodyParser = require('body-parser');
 // For generating Token
 const jwt = require('jsonwebtoken');
-// For encrypting Password
-const bcrypt = require('bcryptjs');
 // For Secert Token
 const config = require('../config');
 // For news Schema
 const news = require('../models/news');
-const session = require('express-session');
 
-
-router.use(session({secret: 'edurekaSecert1', resave: false, saveUninitialized: true}));
-
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
 
 //add news: api/news/addNews
+// test-passed
 router.post('/addNews',(req, res) =>{
     //verify token
     const { authorization } = req.headers;
@@ -38,9 +27,16 @@ router.post('/addNews',(req, res) =>{
             if (err) {
                 res.json({
                     status: "error",
-                    message: "Database error.",
+                    message: "Invalid input.",
                 });
-                throw "Error in DB";
+                return false;
+            }
+            if (!docs) {
+                res.json({
+                    status: "error",
+                    message: "Uable to create news.",
+                });
+                return false;
             }
             res.json({
                 status: "success",
@@ -52,6 +48,7 @@ router.post('/addNews',(req, res) =>{
 })
 
 //get news: api/news/getNews
+//test-passed
 router.get('/getNews',(req, res) =>{
     news.find((err, docs) => {
         if (err) {
@@ -59,7 +56,7 @@ router.get('/getNews',(req, res) =>{
                 status: "error",
                 message: "Database error.",
             });
-            throw "Error in DB";
+            return false;
         }
         res.json({
             status:"success",
@@ -71,6 +68,7 @@ router.get('/getNews',(req, res) =>{
 
 
 //edit news: api/news/editNews
+// test-passed
 router.put('/editNews',(req, res) =>{
     //verify token
     const { authorization } = req.headers;
@@ -83,30 +81,38 @@ router.put('/editNews',(req, res) =>{
             });
             return false;
         }
-        const {id, title, description, url, imageUrl, publishedAt } = req.body;
-        news.findOneAndUpdate({_id:id},{$set:{title, description, url, imageUrl, publishedAt}},(err, docs) => {
+        const {_id, title, description, url, imageUrl, publishedAt } = req.body;
+        news.findOneAndUpdate({_id},{$set:{title:title, description:description, url:url, imageUrl:imageUrl, publishedAt:publishedAt}},(err, docs) => {
             if (err) {
                 res.json({
                     status: "error",
                     message: "Database error.",
                 });
-                throw "Error in DB";
+                return false;
+            }
+            if (!docs) {
+                res.json({
+                    status: "error",
+                    message: "Fail to edit the news.",
+                });
+                return false;
             }
             res.json({
                 status:"success",
                 message: "Successfully updated news!",
-                data: docs
+                data: req.body
             });
         })
     })
 })
 
 //delete news: api/news/deleteNews
+//test-passed
 router.delete('/deleteNews',(req, res) =>{
     //verify token
     const { authorization } = req.headers;
     jwt.verify(authorization, config.secret, (errorpayload, payload) => {
-        console.log(errorpayload);
+        //console.log(errorpayload);
         if (errorpayload) {
             res.json({
                 status: "error",
@@ -120,7 +126,14 @@ router.delete('/deleteNews',(req, res) =>{
                     status: "error",
                     message: "Database error.",
                 });
-                throw "Error in DB";
+                return false;
+            }
+            if (!docs) {
+                res.json({
+                    status: "error",
+                    message: "Can't find such news.",
+                });
+                return false;
             }
             res.json({
                 status:"success",
