@@ -1,1 +1,109 @@
-<p>register-login works!</p>
+<div class=" container-md row ">
+    <div class="col-md-6">
+        <h1 class="text-center">REGISTER</h1>
+        <form [formGroup]="registrationForm">
+            <div class="form-group m-3">
+                <label for="fullName">Name</label>
+                <input type="text" name="fullName"
+                    [ngClass]="(registrationForm.get('fullName').invalid && (registrationForm.get('fullName').dirty || registrationForm.get('fullName').touched)) === true ? 'is-invalid' : ''"
+                    id="fullName" formControlName="fullName" class="form-control" />
+                <div *ngIf="(registrationForm.get('fullName').invalid &&
+                    (registrationForm.get('fullName').dirty ||
+                    registrationForm.get('fullName').touched))" class="invalid-feedback">
+                    <div *ngIf="registrationForm.get('fullName').errors.required">
+                        Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-3">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" [ngClass]="
+                    (registrationForm.get('email').invalid &&
+                    (registrationForm.get('email').dirty ||
+                    registrationForm.get('email').touched)) === true
+                    ? 'is-invalid'
+                    : ''" formControlName="email" class="form-control input-sm" required />
+                <div *ngIf="(registrationForm.get('email').invalid &&
+                    (registrationForm.get('email').dirty ||
+                    registrationForm.get('email').touched))" class="invalid-feedback">
+                    <div *ngIf="registrationForm.get('email').errors.required">
+                        Email is required
+                    </div>
+                    <div *ngIf="registrationForm.get('email').errors.email">
+                        Enter a valid email address, e.g., john@example.com
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-3">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" [ngClass]="
+                    (registrationForm.get('password').invalid &&
+                    (registrationForm.get('password').dirty ||
+                    registrationForm.get('password').touched)) === true
+                    ? 'is-invalid'
+                    : ''" formControlName="password" class="form-control input-sm" required />
+                <div *ngIf="(registrationForm.get('password').invalid &&
+                    (registrationForm.get('password').dirty ||
+                    registrationForm.get('password').touched))" class="invalid-feedback">
+                    <div *ngIf="registrationForm.get('password').errors.required">
+                        Password Number is required
+                    </div>
+                    <div *ngIf="registrationForm.get('password').errors.minLength">
+                        Password Length must be greater than 6
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Register" class="btn btn-primary mr-3" />
+                <input type="submit" value="RESET" class="btn btn-warning " />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h1 class="text-center">LOG IN</h1>
+        <form [formGroup]="loginForm">
+            <div class="form-group m-3">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" [ngClass]="
+                    (loginForm.get('email').invalid &&
+                    (loginForm.get('email').dirty ||
+                    loginForm.get('email').touched)) === true
+                    ? 'is-invalid'
+                    : ''" formControlName="email" class="form-control input-sm" required />
+                <div *ngIf="(loginForm.get('email').invalid &&
+                    (loginForm.get('email').dirty ||
+                    loginForm.get('email').touched))" class="invalid-feedback">
+                    <div *ngIf="loginForm.get('email').errors.required">
+                        Email is required
+                    </div>
+                    <div *ngIf="loginForm.get('email').errors.email">
+                        Enter a valid email address, e.g., john@example.com
+                    </div>
+                </div>
+            </div>
+            <div class="form-group m-3">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" [ngClass]="
+                    (loginForm.get('password').invalid &&
+                    (loginForm.get('password').dirty ||
+                    loginForm.get('password').touched)) === true
+                    ? 'is-invalid'
+                    : ''" formControlName="password" class="form-control input-sm" required />
+                <div *ngIf="(loginForm.get('password').invalid &&
+                    (loginForm.get('password').dirty ||
+                    loginForm.get('password').touched))" class="invalid-feedback">
+                    <div *ngIf="loginForm.get('password').errors.required">
+                        Password Number is required
+                    </div>
+                    <div *ngIf="loginForm.get('password').errors.minLength">
+                        Password Length must be greater than 6
+                    </div>
+                </div>
+            </div>
+            <div class="text-center ">
+                <input type="submit" value="Login" class="btn btn-success mr-3" />
+                <input type="submit" value="Register" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>

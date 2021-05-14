@@ -10,6 +10,9 @@ const routes: Routes = [
   {path:"sports",component:SportsSectionComponent},
   {path:"contact-us",component:ContactUsComponent},
   {path:"about-us",component:AboutUsComponent},
+  // {path: 'register-login',component: RegisterLoginComponent},
+  // {path: 'add-news',component: AddNewsComponent},
+  // {path: 'news-list', component: DataListComponent}
 ];
 
 @NgModule({
