@@ -6,11 +6,18 @@
 <form #f="ngForm" (ngSubmit)="addQuery(f)">  
     <label>Email:</label>
     <div class="form-group">
-      <input type="email" #email="ngModel" [(ngModel)]="f.email" class="form-control"  [ngModelOptions]="{standalone: true}" placeholder="Enter Email"/>
+      <input type="email" #email="ngModel" email required [(ngModel)]="f.email" class="form-control"  [ngModelOptions]="{standalone: true}" placeholder="Enter Email"/>
+      <span *ngIf="email.errors && email.touched">
+        <span *ngIf="email.errors.required">Email is required.</span>
+        <span *ngIf="email.errors.email">Email format is not correct.</span>
+    </span>
     </div>
     <label>Query:</label>
     <div class="form-group">
-        <input type="text" #query="ngModel" [(ngModel)]="f.query" class="form-control" [ngModelOptions]="{standalone: true}"  placeholder="Enter Query">
+        <input type="text" #query="ngModel"  query required [(ngModel)]="f.query" class="form-control" [ngModelOptions]="{standalone: true}"  placeholder="Enter Query">
+        <span *ngIf="query.errors && query.touched">
+          <span *ngIf="query.errors.required">query is required.</span>
+      </span>
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

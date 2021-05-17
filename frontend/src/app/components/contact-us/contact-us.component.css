@@ -16,3 +16,8 @@ h5{
     color:green;
     text-align: center;
 }
+
+span{
+    margin-left:2em;
+    color:red;
+}
