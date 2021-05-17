@@ -8,14 +8,16 @@ import { RegisterLoginComponent } from './components/register-login/register-log
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { DataListComponent } from './components/data-list/data-list.component';
 
-const routes: Routes = [  
+const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"sports",component:SportsSectionComponent},
   {path:"contact-us",component:ContactUsComponent},
   {path:"about-us",component:AboutUsComponent},
   {path: 'login',component: RegisterLoginComponent},
   {path: 'add-news',component: AddNewsComponent},
-  {path: 'news-list', component: DataListComponent}
+  {path: 'news-list', component: DataListComponent},
+  {path:"**", redirectTo:"home"}
+
 ];
 
 @NgModule({

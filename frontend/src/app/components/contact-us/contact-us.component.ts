@@ -7,24 +7,21 @@ import { QueryService } from 'src/app/services/query.service';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
-  submitted:boolean;
+  email: string = "";
+  query: string = "";
 
-  constructor(private query:QueryService) { }
+  constructor(private service:QueryService) { }
 
   ngOnInit(): void {
   }
   addQuery(f){
-    console.log(f.email,f.query);
-  
-    this.query.sendQuery(f.email,f.query).subscribe((respone:any)=>{
+    this.service.sendQuery(f.value.email,f.value.query).subscribe((respone:any)=>{
       if(respone.status=="success"){
-        this.submitted=true;
+        alert("Your query was sent successfully!");
+        this.email="";
+        this.query="";
       }
     })
-
-    
-    }
-    
-  
+  }
 
 }

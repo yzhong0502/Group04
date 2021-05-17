@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">   
-        <h4>weather component</h4> 
-    <app-image-slider></app-image-slider> 
+    <div class="row">
+        <app-weather></app-weather>
+    <app-image-slider></app-image-slider>
     <div class="displaycards">
         <div class="card" style="width: 18rem;" *ngFor="let item of newsItems">
             <div class="card-body">
@@ -12,7 +12,10 @@
             </div>
           </div>
         </div>
-        <div>
+    </div>
+  <div class="row">
      <app-chat-box></app-chat-box>
-    </div>   
+  </div>
+
 </div>
+

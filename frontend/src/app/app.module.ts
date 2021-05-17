@@ -20,6 +20,8 @@ import { WeatherService } from './services/weather.service';
 import {QueryService} from './services/query.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RegisterService } from "./services/register.service";
+import { ChatService } from "./services/chat.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [WeatherService,QueryService],
+  providers: [WeatherService,QueryService,RegisterService, ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

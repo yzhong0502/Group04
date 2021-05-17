@@ -53,3 +53,7 @@ body {
 #messages > li:nth-child(odd) {
   background: #efefef;
 }
+
+div {
+  border: 1px solid #888888;
+}
