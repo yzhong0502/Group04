@@ -7,7 +7,7 @@
   "url": "https://www.usatoday.com/story/sports/mlb/2021/05/17/mlb-power-rankings-red-sox-standings-white-sox-astros/5123586001/",
   "urlToImage": "https://www.gannett-cdn.com/presto/2021/05/17/USAT/b3287a06-64cb-4888-bc96-84b75042d9e4-USATSI_16065050.jpg?crop=3365,1893,x0,y212&width=660&height=370&format=pjpg&auto=webp",
   "publishedAt": "2020-05-17T06:04:59.745Z",
-  "Cateogory": "sports",
+  "category": "sports",
   "__v": 0
 },{
   "_id": {
@@ -18,7 +18,7 @@
   "url": "https://finance.yahoo.com/news/republicans-are-setting-a-tax-trap-for-biden-184020085.html",
   "urlToImage": "https://s.yimg.com/ny/api/res/1.2/kfXzQPX1CvT8SuUs.TdGgQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2021-05/82453d90-b419-11eb-bfc1-93a6172d7471",
   "publishedAt": "2021-05-13T13:40:59.745Z",
-  "Cateogory": "politics",
+  "category": "politics",
   "__v": 0
 },{
   "_id": {
@@ -29,7 +29,7 @@
   "url": "https://finance.yahoo.com/news/stock-market-news-live-updates-may-17-2021-113411447.html",
   "urlToImage": "https://cdn.mos.cms.futurecdn.net/kiU3zeV863UoMTHzXfkZeU-1024-80.jpg.webp",
   "publishedAt": "2021-05-17T09:08:59.745Z",
-  "Cateogory": "finance",
+  "category": "finance",
   "__v": 0
 },{
   "_id": {
@@ -40,7 +40,7 @@
   "url": "https://www.cbsnews.com/news/israel-gaza-hamas-palestinians-conflict-second-week/",
   "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/210516182452-01-israel-bleacher-collapse-large-169.jpg",
   "publishedAt": "2021-05-17T09:15:59.745Z",
-  "Cateogory": "world",
+  "category": "world",
   "__v": 0
 },{
   "_id": {
@@ -51,7 +51,7 @@
   "url": "https://www.sportingnews.com/us/nfl/news/ryan-fitzpatrick-alex-smith-leg-injury/1lf1yoj0et4jz110svy6px1blc#:~:text=%22When%20Alex%20broke%20his%20leg,ll%20fix%20you%20right%20up.",
   "urlToImage": "https://s.yimg.com/ny/api/res/1.2/TEG_sqfab6Ls3eaJ9JB4Qg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTYyMC40ODtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2021-04/0b237800-a1f7-11eb-8bbd-93171f709c1c",
   "publishedAt": "2021-03-16T21:37:59.745Z",
-  "Cateogory": "sports",
+  "category": "sports",
   "__v": 0
 },{
   "_id": {
@@ -62,7 +62,7 @@
   "url": "https://www.nbcnews.com/news/us-news/sports-betting-skyrocketed-pandemic-experts-warn-ticking-time-bomb-n1266518",
   "urlToImage": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-2000w,f_auto,q_auto:best/newscms/2021_18/3470709/210506-online-gambling-social-al-1040.jpg",
   "publishedAt": "2021-05-15T05:00:59.745Z",
-  "Cateogory": "sports",
+  "category": "sports",
   "__v": 0
 },{
   "_id": {
@@ -73,7 +73,7 @@
   "url": "https://indianexpress.com/article/sports/cricket/darshil-shah-the-brain-behind-the-bamboo-bat-7317731/",
   "urlToImage": "https://images.indianexpress.com/2021/05/Darshil-Shah.jpg",
   "publishedAt": "2021-05-1T707:38:09.745Z",
-   "Cateogory": "sports",
+   "category": "sports",
   "__v": 0
 },{
   "_id": {
@@ -84,6 +84,6 @@
   "url": "https://www.kristv.com/news/local-news/a-passion-turns-into-a-full-time-job-for-one-local-business-and-owner",
   "urlToImage": "https://ewscripps.brightspotcdn.com/dims4/default/5c694df/2147483647/strip/true/crop/3264x1836+0+41/resize/320x180!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F14%2F25%2F78dbc3db4fa486f597846d2fa8fc%2Fscreen-shot-2021-05-17-at-3.28.54%20AM.png",
   "publishedAt": "2021-05-17T08:01:25.268Z",
-   "Cateogory": "local",
+   "category": "local",
   "__v": 0
 }]
