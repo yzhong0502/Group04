@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
@@ -17,10 +18,10 @@ export class RegisterLoginComponent implements OnInit {
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService) {}
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -39,6 +40,7 @@ export class RegisterLoginComponent implements OnInit {
     password: this.registrationForm.get('password').value}).subscribe(data=>{
       if(data?.status === "success"){
         localStorage.setItem("token",data?.data?.token)
+        this.router.navigate(["/home"]);
      }
    })
   }
