@@ -25,6 +25,7 @@ import { ChatService } from "./services/chat.service";
 import { CanActivateGuard } from "./helpers/routeGuard";
 import { HttpInterceptorService } from "./services/http-interceptor.service";
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import {DataTablesModule} from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -43,14 +44,15 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
     DataListComponent,
     AdminHomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    NgbModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule,
+        NgbModule,
+        ReactiveFormsModule,
+        DataTablesModule,
+    ],
   providers: [WeatherService,QueryService,RegisterService, ChatService, CanActivateGuard,
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]

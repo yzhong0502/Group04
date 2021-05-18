@@ -1,6 +1,7 @@
 <app-admin-home></app-admin-home>
-<div class="col-md-6">
-  <h1 class="text-center">Add News </h1>
+<div class="row">
+<div class="col-md-12">
+  <h4 class="text-center align-middle">Add News </h4>
   <form [formGroup]="newsform">
     <div class="form-group m-3">
       <label for="title">Title</label>
@@ -106,4 +107,5 @@
       <input type="submit" value="RESET" (click)="onClickReset()" class="btn btn-warning " />
     </div>
   </form>
+</div>
 </div>

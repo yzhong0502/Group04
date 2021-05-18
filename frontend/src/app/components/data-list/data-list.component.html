@@ -1,10 +1,29 @@
 
-
 <app-admin-home></app-admin-home>
+
+  <div class="row clearfix" *ngIf="editable">
+    <div class="col-md-12 column">
+      <form role="form" #f="ngForm" name="f" (ngSubmit)="f.form.valid && editSubmit(f)">
+        <div class="form-group">
+          <label>Title</label><br>
+          <textarea rows="1" cols="140"  required name="title" #title="ngModel" ngModel placeholder="{{editItem?.title}}"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Description</label><br>
+          <textarea rows="5" cols="140" placeholder="{{editItem?.description}}" required name="description" #description="ngModel" ngModel></textarea>
+        </div>
+        <p class="help-block" style="color:red" *ngIf="f.submitted && !f.form.valid">Input must be valid!</p>
+        <input type="submit" class="btn" value="Submit">
+        <button class="btn-danger" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
 <div class="container mt-5">
+  <div class="row">
     <h1 class="text-center">News List</h1>
 
-    <table id="t" class="display">
+    <table datatable class="row-border hover" [dtOptions]="dtOptions">
         <thead>
             <tr>
                 <th>Title</th>
@@ -15,50 +34,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let newsItem of newsList; let i = index">
-              <ng-template [ngIf]="editable[i]">
-                <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && editSubmit(i,f)">
-                <th scope="row">{{i+1}}</th>
-                <td>
-                  <input type="text" value="{{newsItem?.title}}" required name="title" #title="ngModel" ngModel>
-                </td>
-                <td>
-                  <input type="text" value="{{newsItem?.description}}" required name="description" #description="ngModel" ngModel>
-                </td>
-                <td>
-                  <input type="text" value="{{newsItem?.publishedAt | date:'longDate'}}" required name="publishedAt" #publishedAt="ngModel" ngModel>
-                </td>
-                <td><input type="submit" value="Submit" class="btn btn-warning me-3"></td>
-                  <p style="color:red" *ngIf="!f.form.valid">Input must be valid!</p>
-                </form>
-              </ng-template>
-              <ng-template [ngIf]="!editable[i]">
                 <td>{{newsItem?.title}}</td>
                 <td>{{newsItem?.description}}</td>
-                <td>{{newsItem?.publishedAt | date:'longDate'}}</td>
-                <td><button class="btn btn-warning me-3" (click)="edit(i)">Edit</button> <button class="btn btn-danger" (click)="onClickDelete(i)">Delete</button></td>
-              </ng-template>
+                <td>{{newsItem?.publishedAt}}</td>
+                <td><button class="btn btn-warning me-3" (click)="edit(i)" *ngIf="!editable">Edit</button> <button class="btn btn-danger" (click)="onClickDelete(i)">Delete</button></td>
             </tr>
         </tbody>
     </table>
+  </div>
 </div>
-<script>
-  $(document).ready( () => {
-    $('#t').DataTable({
-      "lengthMenu": [
-        [5,15,20,-1],
-        [5,15,20,"ALL"]
-      ],
-      "pageLength": 5,
-      "columnDefs": [{
-        'orderable':true,
-        'targets':[0,1,2]
-      }, {
-        "searchable":true,
-        "targets":[0,1,2]
-      }],
-      "order": [
-        [2, "asc"]
-      ],
-    });
-  });
-</script>

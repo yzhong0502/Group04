@@ -8,26 +8,43 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class DataListComponent implements OnInit {
   newsList: any = [];
-  editable:boolean[] = [];
+  editable:boolean = false;
+  editItem: any;
+  editIndex: number;
+
+  dtOptions: DataTables.Settings = {};
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
     this.getNews();
+    this.dtOptions = {
+      "lengthMenu": [
+        [5,15,20,-1],
+        [5,15,20,"ALL"]
+      ],
+      "pageLength": 5,
+      "columnDefs": [{
+        'orderable':true,
+        'targets':[0,1,2]
+      }, {
+        "searchable":true,
+        "targets":[0,1,2]
+      }],
+    }
   }
 
   getNews(){
     this.newsService.listNews().subscribe(data=>{
       this.newsList = data?.data;
-      for (let i=0;i < this.newsList.length; i++) {
-        this.editable.push(false);
-      }
     })
   }
 
 
 
   onClickDelete(index){
+    console.log(index);
+    console.log(this.newsList[index]._id);
     this.newsService.deleteNews(this.newsList[index]._id).subscribe(data=>{
       if (data.status==="success") {
         alert(data.message);
@@ -40,21 +57,26 @@ export class DataListComponent implements OnInit {
 
   //can only edit one line at a time
   edit(i) {
-    for (let j=0;j<this.editable.length;j++) {
-      this.editable[j] = false;
-    }
-    this.editable[i] = true;
+    console.log(i);
+    this.editable = true;
+    this.editItem = this.newsList[i];
+    this.editIndex = i;
   }
 
-  editSubmit(i,form) {
-    this.editable[i]=false;
+  editSubmit(form) {
     this.newsService.editNews(
       {
-        _id: this.newsList[i]._id,
+        _id: this.newsList[this.editIndex]._id,
         title:form.value.title,
       description:form.value.description,
       publishedAt:form.value.publishedAt}).subscribe(data=>{
-          alert(data.message);
+        this.editable=false;
+        alert(data.message);
+        this.getNews();
     });
+  }
+
+  cancel() {
+    this.editable = false;
   }
 }
