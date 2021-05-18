@@ -33,6 +33,8 @@ export class RegisterLoginComponent implements OnInit {
      password: this.registrationForm.get('password').value}).subscribe(data=>{
        if(data?.status === "success"){
           window.localStorage.setItem("token",data?.data?.token);
+          window.localStorage.setItem("name",data?.data?.name);
+         window.localStorage.setItem("email",data?.data?.email);
           alert(data.message);
           this.router.navigateByUrl("/news-list");
        } else {
@@ -42,10 +44,12 @@ export class RegisterLoginComponent implements OnInit {
   }
 
   onClickLogin(){
-    this.registerService.loginUser({email: this.registrationForm.get('email').value,
-    password: this.registrationForm.get('password').value}).subscribe(data=>{
+    this.registerService.loginUser({email: this.loginForm.get('email').value,
+    password: this.loginForm.get('password').value}).subscribe(data=>{
       if(data?.status === "success"){
         window.localStorage.setItem("token",data?.data?.token)
+        window.localStorage.setItem("name",data?.data?.name);
+        window.localStorage.setItem("email",data?.data?.email);
         alert(data.message);
         this.router.navigateByUrl("/news-list");
      } else {

@@ -25,9 +25,9 @@ export class WeatherComponent implements OnInit {
   weatherCity:String;
   weatherCountry:String;
 
-  
 
-  
+
+
   constructor(private weather : WeatherService) { }
 
   ngOnInit(): void {
@@ -39,12 +39,12 @@ export class WeatherComponent implements OnInit {
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-    
-          this.lat = position.coords.latitude;
-          this.lng = position.coords.longitude;
-       
 
-          this.weather.getWeatherByCoords(this.lat,this.lng).subscribe(data =>{
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+
+
+        this.weather.getWeatherByCoords(this.lat,this.lng).subscribe(data =>{
           this.WeatherData = data;
 
           //console.log(this.WeatherData)
@@ -53,13 +53,11 @@ export class WeatherComponent implements OnInit {
           this.weatherTemp =this.WeatherData.main.temp;
           this.weatherCity = this.WeatherData.name;
           this.weatherCountry = this.WeatherData.sys.country;
-          });
-        
+        });
+
       })
     }
   }
-
-  
 
 
 

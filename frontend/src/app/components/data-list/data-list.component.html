@@ -1,5 +1,8 @@
 
 <app-admin-home></app-admin-home>
+<div>
+  <p style="background-color: #42b983">Name: {{name}}; Email: {{email}}</p>
+</div>
 
   <div class="row clearfix" *ngIf="editable">
     <div class="col-md-12 column">
@@ -19,7 +22,7 @@
     </div>
   </div>
 
-<div class="container mt-5">
+<div class="container mt-5" *ngIf="!editable">
   <div class="row">
     <h1 class="text-center">News List</h1>
 
@@ -37,7 +40,7 @@
                 <td>{{newsItem?.title}}</td>
                 <td>{{newsItem?.description}}</td>
                 <td>{{newsItem?.publishedAt}}</td>
-                <td><button class="btn btn-warning me-3" (click)="edit(i)" *ngIf="!editable">Edit</button> <button class="btn btn-danger" (click)="onClickDelete(i)">Delete</button></td>
+                <td><button class="btn btn-warning me-3" (click)="edit(i)">Edit</button> <button class="btn btn-danger" (click)="onClickDelete(i)">Delete</button></td>
             </tr>
         </tbody>
     </table>

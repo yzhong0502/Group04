@@ -14,9 +14,14 @@ export class DataListComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
 
+  name:string;
+  email:string;
+
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
+    this.name = window.localStorage.getItem("name");
+    this.email = window.localStorage.getItem("email");
     this.getNews();
     this.dtOptions = {
       "lengthMenu": [

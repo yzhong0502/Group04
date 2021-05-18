@@ -16,9 +16,15 @@ export class AddNewsComponent implements OnInit {
     publishedAt: ['', Validators.required],
     category: ['', Validators.required]
   });
+  name:string;
+  email:string;
+
   constructor(private fb: FormBuilder, private newsService: NewsService) { }
 
+
   ngOnInit(): void {
+    this.name = window.localStorage.getItem("name");
+    this.email = window.localStorage.getItem("email");
   }
 
   addNews() {
