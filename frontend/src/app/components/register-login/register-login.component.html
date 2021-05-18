@@ -1,18 +1,7 @@
+<app-admin-home></app-admin-home>
 <div class=" container-md row ">
-    <div class="col-md-6">        
+    <div class="col-md-6">
         <h1 class="text-center">REGISTER</h1>
-        <div *ngIf="registrationSuccess" class="alert alert-success d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div>
-              {{registrationMessage}}
-            </div>
-          </div>
-          <div *ngIf="registrationFailure" class="alert alert-danger d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div>
-                {{registrationMessage}}
-            </div>
-          </div>
         <form [formGroup]="registrationForm">
             <div class="form-group m-3">
                 <label for="fullName">Name</label>
@@ -28,8 +17,8 @@
                 </div>
             </div>
             <div class="form-group m-3">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" [ngClass]="
+                <label>Email</label>
+                <input type="email" name="email"  [ngClass]="
                     (registrationForm.get('email').invalid &&
                     (registrationForm.get('email').dirty ||
                     registrationForm.get('email').touched)) === true
@@ -48,7 +37,7 @@
             </div>
             <div class="form-group m-3">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" [ngClass]="
+                <input type="password" name="password"  [ngClass]="
                     (registrationForm.get('password').invalid &&
                     (registrationForm.get('password').dirty ||
                     registrationForm.get('password').touched)) === true
@@ -64,22 +53,16 @@
             </div>
             <div class="text-center">
                 <input type="submit" value="Register" (click)="onClickRegister()" class="btn btn-primary me-3" />
-                <input type="submit" value="RESET" class="btn btn-warning " (click)="onClickRegistrationReset()" />
+              <button class="btn btn-warning " (click)="onClickRegistrationReset()">RESET</button>
             </div>
         </form>
     </div>
     <div class="col-md-6">
         <h1 class="text-center">LOG IN</h1>
-          <div *ngIf="loginFailure" class="alert alert-danger d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div>
-                {{loginMessage}}
-            </div>
-          </div>
         <form [formGroup]="loginForm">
             <div class="form-group m-3">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" [ngClass]="
+                <label>Email</label>
+                <input type="email" name="email"  [ngClass]="
                     (loginForm.get('email').invalid &&
                     (loginForm.get('email').dirty ||
                     loginForm.get('email').touched)) === true
@@ -110,11 +93,14 @@
                     <div *ngIf="loginForm.get('password').errors.required">
                         Password Number is required
                     </div>
+                    <div *ngIf="loginForm.get('password').errors.minLength">
+                        Password Length must be greater than 6
+                    </div>
                 </div>
             </div>
             <div class="text-center ">
                 <input type="submit" value="Login" (click)="onClickLogin()" class="btn btn-success me-3" />
-                <input type="submit" value="Reset" class="btn btn-danger" (click)="onClickLoginReset()" />
+              <button class="btn btn-danger" (click)="onClickLoginReset()">RESET</button>
             </div>
         </form>
     </div>

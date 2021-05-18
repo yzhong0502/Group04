@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +17,19 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  addNews(newsDetails): any{
+  addNews(newsDetails): Observable<any>{
     return this.http.post(this.url+"/addNews", newsDetails, this.httpoptions)
   }
 
-  listNews(): any{
+  listNews(): Observable<any>{
     return this.http.get(this.url+"/getNews")
   }
 
-  editNews(newsDetails): any{
+  editNews(newsDetails): Observable<any>{
     return this.http.put(this.url+"/editNews", newsDetails, this.httpoptions)
   }
 
-  deleteNews(id): any{
+  deleteNews(id): Observable<any>{
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

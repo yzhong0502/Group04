@@ -18,12 +18,13 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
 import { DataListComponent } from './components/data-list/data-list.component';
 import { WeatherService } from './services/weather.service';
 import {QueryService} from './services/query.service';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterService } from "./services/register.service";
 import { ChatService } from "./services/chat.service";
-import { AuthService } from './services/auth.service';
-import { AuthGuardService } from './services/auth-guard.service';
+import { CanActivateGuard } from "./helpers/routeGuard";
+import { HttpInterceptorService } from "./services/http-interceptor.service";
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     RegisterLoginComponent,
     AddNewsComponent,
     DataListComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [WeatherService,QueryService,RegisterService, ChatService, AuthGuardService],
+  providers: [WeatherService,QueryService,RegisterService, ChatService, CanActivateGuard,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

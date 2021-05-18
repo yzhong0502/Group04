@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
   providedIn: 'root'
 })
 export class ChatService {
-  private url = 'http://localhost:3000'; //backend server port
+  private url = 'http://localhost:3000'; //socket server port
   private socket: any;
 
   ngOnInit() {

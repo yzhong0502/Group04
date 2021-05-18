@@ -1,12 +1,15 @@
+<div class="row">
+  <app-header></app-header>
+</div>
 <div class="btn-group mr-3">
     <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-      <button class="btn" ngbDropdownToggle>Select Category</button>
+      <button class="btn" ngbDropdownToggle>{{option}}</button>
       <div class="dropdown-menu" ngbDropdownMenu>
         <button ngbDropdownItem  (click)="firstbutton()">General</button>
         <button ngbDropdownItem  (click)="secondbutton()">Sports</button>
       </div>
     </div>
-  </div>  
+  </div>
 
   <div *ngIf="showgeneral" class="displaycards">
     <div class="card" style="width: 18rem;" *ngFor="let general of generalItems">

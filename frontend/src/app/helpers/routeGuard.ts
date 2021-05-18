@@ -7,7 +7,7 @@ export class CanActivateGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (window.localStorage.getItem("access-token")) {
+    if (window.localStorage.getItem("token")) {
       return true;
     }
     this.router.navigate(['login']);

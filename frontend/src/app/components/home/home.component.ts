@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.query.news().subscribe((res:any)=>{
+      console.log(res);
       this.newsItems = res.data;
     })
   }

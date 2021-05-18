@@ -7,7 +7,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { RegisterLoginComponent } from './components/register-login/register-login.component';
 import { AddNewsComponent } from './components/add-news/add-news.component';
 import { DataListComponent } from './components/data-list/data-list.component';
-import { AuthGuardService } from './services/auth-guard.service';
+import { CanActivateGuard} from "./helpers/routeGuard";
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
@@ -15,9 +15,10 @@ const routes: Routes = [
   {path:"contact-us",component:ContactUsComponent},
   {path:"about-us",component:AboutUsComponent},
   {path: 'login',component: RegisterLoginComponent},
-  {path: 'add-news',component: AddNewsComponent},
-  {path: 'news-list', component: DataListComponent},
+  {path: 'add-news',component: AddNewsComponent, canActivate:[CanActivateGuard]},
+  {path: 'news-list', component: DataListComponent, canActivate:[CanActivateGuard]},
   {path:"**", redirectTo:"home"}
+
 ];
 
 @NgModule({
