@@ -47,9 +47,9 @@ export class WeatherComponent implements OnInit {
           this.weather.getWeatherByCoords(this.lat,this.lng).subscribe(data =>{
           this.WeatherData = data;
 
-          console.log(this.WeatherData)
+          //console.log(this.WeatherData)
           this.weatherCondition= this.WeatherData.weather[0].main;
-          this.weatherIcon = this.WeatherData.weather[0].icon;
+          this.weatherIcon = "http://openweathermap.org/img/w/"+this.WeatherData.weather[0].icon+".png";
           this.weatherTemp =this.WeatherData.main.temp;
           this.weatherCity = this.WeatherData.name;
           this.weatherCountry = this.WeatherData.sys.country;

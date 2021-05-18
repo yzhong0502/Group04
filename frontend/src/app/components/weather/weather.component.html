@@ -1,6 +1,6 @@
 <div>
   <p><strong>Weather:   </strong>
-    {{weatherCondition}}  <img src= "http://openweathermap.org/img/w/{{weatherIcon}}.png">
+    {{weatherCondition}}  <img src={{weatherIcon}}>
     <span></span>{{weatherTemp  | number: '1.0-0'}}<span>&#8451;</span>
     {{weatherCity}},{{weatherCountry}}
 </p><hr>
