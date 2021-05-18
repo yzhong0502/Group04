@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegisterService } from "./services/register.service";
 import { ChatService } from "./services/chat.service";
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { ChatService } from "./services/chat.service";
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [WeatherService,QueryService,RegisterService, ChatService],
+  providers: [WeatherService,QueryService,RegisterService, ChatService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,4 +35,8 @@ export class AddNewsComponent implements OnInit {
     })
   }
 
+  onClickReset(){
+    this.newsform.reset();
+  }
+
 }

@@ -6,3 +6,8 @@
     color: black;
     text-align: center;
  }
+
+ .container{
+    max-width: 3000px;
+    padding-right: 0;
+ }

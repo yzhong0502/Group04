@@ -49,10 +49,12 @@ export class RegisterLoginComponent implements OnInit {
   }
 
   onClickLogin(){
-    this.registerService.loginUser({email: this.registrationForm.get('email').value, 
-    password: this.registrationForm.get('password').value}).subscribe(data=>{
+    this.registerService.loginUser({email: this.loginForm.get('email').value, 
+    password: this.loginForm.get('password').value}).subscribe(data=>{
       if(data?.status === "success"){
         localStorage.setItem("token",data?.data?.token)
+        localStorage.setItem("name",data?.data?.name)
+        this.registerService.userLoggedIn();
         this.router.navigate(["/home"]);
      }
      else{
