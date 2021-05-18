@@ -31,7 +31,8 @@ export class AddNewsComponent implements OnInit {
       'category': this.newsform.get('category').value
     }
     this.newsService.addNews(news).subscribe(data => {
-      console.log(data)
+      alert(data.message);
+      this.newsform.reset();
     })
   }
 

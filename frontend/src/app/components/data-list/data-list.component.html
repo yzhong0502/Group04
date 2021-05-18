@@ -36,7 +36,7 @@
             <tr *ngFor="let newsItem of newsList; let i = index">
                 <td>{{newsItem?.title}}</td>
                 <td>{{newsItem?.description}}</td>
-                <td>{{newsItem?.publishedAt | date:'longDate'}}</td>
+                <td>{{newsItem?.publishedAt}}</td>
                 <td><button class="btn btn-warning me-3" (click)="edit(i)" *ngIf="!editable">Edit</button> <button class="btn btn-danger" (click)="onClickDelete(i)">Delete</button></td>
             </tr>
         </tbody>

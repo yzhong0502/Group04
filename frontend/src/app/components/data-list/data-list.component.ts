@@ -31,9 +31,6 @@ export class DataListComponent implements OnInit {
         "searchable":true,
         "targets":[0,1,2]
       }],
-      "order": [
-        [2, "asc"]
-      ]
     }
   }
 
@@ -46,6 +43,8 @@ export class DataListComponent implements OnInit {
 
 
   onClickDelete(index){
+    console.log(index);
+    console.log(this.newsList[index]._id);
     this.newsService.deleteNews(this.newsList[index]._id).subscribe(data=>{
       if (data.status==="success") {
         alert(data.message);
@@ -58,6 +57,7 @@ export class DataListComponent implements OnInit {
 
   //can only edit one line at a time
   edit(i) {
+    console.log(i);
     this.editable = true;
     this.editItem = this.newsList[i];
     this.editIndex = i;

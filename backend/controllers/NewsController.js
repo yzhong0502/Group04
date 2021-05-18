@@ -81,8 +81,8 @@ router.put('/editNews',(req, res) =>{
             });
             return false;
         }
-        const {_id, title, description, url, imageUrl, publishedAt, category } = req.body;
-        news.findOneAndUpdate({_id},{$set:{title:title, description:description, url:url, imageUrl:imageUrl, publishedAt:publishedAt, category:category}},(err, docs) => {
+        const {_id, title, description} = req.body;
+        news.findOneAndUpdate({_id},{$set:{title:title, description:description}},(err, docs) => {
             if (err) {
                 res.json({
                     status: "error",
