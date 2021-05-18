@@ -19,6 +19,12 @@ export class WeatherComponent implements OnInit {
 
   WeatherData:any;
 
+  weatherCondition: String;
+  weatherIcon: String;
+  weatherTemp: String;
+  weatherCity:String;
+  weatherCountry:String;
+
   
 
   
@@ -40,11 +46,20 @@ export class WeatherComponent implements OnInit {
 
           this.weather.getWeatherByCoords(this.lat,this.lng).subscribe(data =>{
           this.WeatherData = data;
+
+          console.log(this.WeatherData)
+          this.weatherCondition= this.WeatherData.weather[0].main;
+          this.weatherIcon = this.WeatherData.weather[0].icon;
+          this.weatherTemp =this.WeatherData.main.temp;
+          this.weatherCity = this.WeatherData.name;
+          this.weatherCountry = this.WeatherData.sys.country;
           });
         
       })
     }
   }
+
+  
 
 
 

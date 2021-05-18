@@ -1,8 +1,8 @@
 <div>
   <p><strong>Weather:   </strong>
-    {{WeatherData.weather[0].main}}  <img src= "http://openweathermap.org/img/w/{{WeatherData.weather[0].icon}}.png">
-    <span>        </span>{{WeatherData.main.temp | number: '1.0-0'}}<span>&#8451;</span>
-    {{WeatherData.name}},{{WeatherData.sys.country}}
+    {{weatherCondition}}  <img src= "http://openweathermap.org/img/w/{{weatherIcon}}.png">
+    <span></span>{{weatherTemp  | number: '1.0-0'}}<span>&#8451;</span>
+    {{weatherCity}},{{weatherCountry}}
 </p><hr>
 </div>
 
